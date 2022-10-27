@@ -1,19 +1,15 @@
 import React, { FC } from 'react';
 import { Searchbar } from 'react-native-paper';
+import { SearchProps } from '../../interfaces';
 
-interface SearchProps {
-    searchQuery: string;
-    setSearchQuery: (value: string) => void;
-  }
-
-export const Search: FC<SearchProps> = ({ searchQuery, setSearchQuery }) => {
+export const Search: FC<SearchProps> = ({ searchQuery, setSearchQuery, placeholder = "Search" }) => {
   
 
   const onChange = query => setSearchQuery(query);
 
   return (
     <Searchbar
-      placeholder="Search"
+      placeholder={placeholder}
       onChangeText={onChange}
           value={searchQuery}
     />
