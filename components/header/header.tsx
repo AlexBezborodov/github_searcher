@@ -1,11 +1,12 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import { Appbar } from 'react-native-paper';
+import { HeaderProps } from '../../interfaces';
 
-
-export const Header = () => {
+export const Header: FC<HeaderProps> = ({ title, bgc = "gray", onPress }) => {
   return (
-    <Appbar.Header style={{ backgroundColor: "gray"}}>
-      <Appbar.Content title="GitHub searcher" />
+    <Appbar.Header style={{ backgroundColor: bgc }}>
+      { onPress && <Appbar.BackAction onPress={onPress} />}
+      <Appbar.Content title={title} />
     </Appbar.Header>
   );
 };
