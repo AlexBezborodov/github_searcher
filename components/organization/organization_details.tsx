@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import { Subheading, Title } from 'react-native-paper';
+import { Subheading } from 'react-native-paper';
 import { useParams, useNavigate } from 'react-router-native';
 import { Header } from '../header';
 import { useGetData, useDebounce, useFilteredSearch } from '../../hooks';

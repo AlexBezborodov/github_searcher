@@ -12,4 +12,12 @@ export interface SearchProps {
     searchQuery: string;
     setSearchQuery: (value: string) => void;
     placeholder?: string;
-  }
+}
+  
+export interface OrgDetailsProps {
+    avatar_url?: string;
+    name?: string;
+    location?: string;
+    followers?: number;
+    public_repos?: number;
+}
