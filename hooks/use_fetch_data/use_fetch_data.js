@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Alert } from "react-native";
 
-export function useGetData() {
+export function useGetData(url) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setLoading] = useState(false);
@@ -12,7 +12,7 @@ export function useGetData() {
   async function fetchData() {
     try {
       setLoading(true);
-      const response = await axios.get(`https://api.github.com/users`);
+      const response = await axios.get(url);
       if (response.status === 200) {
         setData(response.data);
         setLoading(false);
