@@ -5,7 +5,8 @@ import { Card, Subheading, Title } from 'react-native-paper';
 export const AboutCompany: FC<any> = (data) => { 
     return (
     <View style={{ padding: 1, marginVertical: 16}}>
-      <Card style={{marginVertical: 4}} >
+        <Card style={{ marginVertical: 4 }} >
+        <Card.Cover source={{ uri: data.avatar_url }} />
         <Card.Content>
           <Title>
               Name: {data.name || "no info"}

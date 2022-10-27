@@ -23,7 +23,7 @@ export const OrganizationDetails = () => {
     
     return (
     <>
-      <Header title="Organization" onPress={() => navigate("/")} />
+      <Header title="Org details" onPress={() => navigate("/")} />
       <Layout>
         <Search searchQuery={repoSearchQuery} setSearchQuery={setRepoSearchQuery} placeholder="Search repos" />
         <AboutCompany {...org} /> 
