@@ -1,24 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+
 import { Header } from '../header';
-import { Provider as PaperProvider } from 'react-native-paper';
+import { Provider as PaperProvider, Subheading } from 'react-native-paper';
 import { Layout } from '../layout';
 import { Search } from '../search';
-import { useGetData } from '../../hooks/use_fetch_data';
-import { useDebounce } from '../../hooks/use_debounce';
+import { useGetData, useFilteredSearch, useDebounce  } from '../../hooks';
 import { UserList } from '../list';
-import { useFilteredSearch } from '../../hooks/use_filter_search/use_filter_search';
+
 
 export const Application = () => {
   
-  const { data } = useGetData();
+  const { data } = useGetData(`https://api.github.com/organizations`);
   const [searchQuery, setSearchQuery] = useState('');
   const debouncedSearchValue = useDebounce(searchQuery, 500);
   const { filteredData } = useFilteredSearch(data, debouncedSearchValue);
+
   return (
       <PaperProvider>
-      <Header />
+      <Header title="Github searcher" />
       <Layout>
         <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        <Subheading style={{ marginVertical: 8}}>Orgsnizations:</Subheading>
         <UserList data={filteredData} />
       </Layout>
       </PaperProvider>

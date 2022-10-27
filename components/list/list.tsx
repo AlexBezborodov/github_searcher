@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import { FlatList, View } from 'react-native';
 import { Title, List } from 'react-native-paper';
-interface DataProps {
-    data: Array<Object> | [];
-}
+import { DataProps } from '../../interfaces';
+import { UserListItem } from './list_item';
+
+
 
 export const UserList: FC<DataProps> = ({ data }) => {
     return (
@@ -12,7 +13,7 @@ export const UserList: FC<DataProps> = ({ data }) => {
             <FlatList
             data={data}
             keyExtractor={(user: any) => user.id}
-            renderItem={({ item }: any) => (<List.Item title={item.login} />)}
+            renderItem={({ item }: any) => (<UserListItem {...item} />)}
             />
         </View>        
   )
