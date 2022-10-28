@@ -13,8 +13,6 @@ export const OrganizationDetails = () => {
 
     const { data: org } = useGetData(`https://api.github.com/orgs/${id}`);
     const {data: repos} = useGetData(`https://api.github.com/orgs/${name}/repos`);
-    console.log("data org", org);
-    console.log("repos", repos);
 
     const [repoSearchQuery, setRepoSearchQuery] = useState('');
     const debouncedSearchValue = useDebounce(repoSearchQuery, 500);
@@ -25,7 +23,7 @@ export const OrganizationDetails = () => {
     <>
       <Header title="Org details" onPress={() => navigate("/")} />
       <Layout>
-        <Search searchQuery={repoSearchQuery} setSearchQuery={setRepoSearchQuery} placeholder="Search repos" />
+        <Search searchQuery={repoSearchQuery} setSearchQuery={setRepoSearchQuery} placeholder="Search repos" keyHistory="repo" />
         <AboutCompany {...org} /> 
         <Subheading>Repositories:</Subheading>
         <ReposList  data={filteredData.map(item => ({...item, login: item.name}))}/>

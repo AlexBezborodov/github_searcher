@@ -12,6 +12,7 @@ export interface SearchProps {
     searchQuery: string;
     setSearchQuery: (value: string) => void;
     placeholder?: string;
+    keyHistory: string;
 }
   
 export interface OrgDetailsProps {

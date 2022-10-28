@@ -19,7 +19,11 @@ export const Application = () => {
       <PaperProvider>
       <Header title="Github searcher" />
       <Layout>
-        <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} placeholder="Search by org" />
+        <Search
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          placeholder="Search by org"
+          keyHistory="org" />
         <Subheading style={{ marginVertical: 8}}>Organizations:</Subheading>
         <UserList data={filteredData} />
       </Layout>
